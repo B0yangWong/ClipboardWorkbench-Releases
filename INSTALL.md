@@ -1,61 +1,62 @@
-# 安装与兼容性
+# Installation and Compatibility
 
-本文适用于剪切板工作台 0.1.1。无需安装 Xcode 或其他开发工具。
+This guide applies to Clipboard Workbench 0.1.1. Xcode and other developer tools are not required.
 
-## 系统要求
+## Requirements
 
-| 项目 | 当前情况 |
+| Item | Current status |
 | --- | --- |
-| 芯片 | 下载包适用于 Apple 芯片 Mac（M 系列），不提供 Intel 安装包。 |
-| 系统 | 最低部署目标为 macOS 14；目前已在开发者的 macOS 27 上验证，较早系统尚未完成运行验证。 |
-| 安装位置 | 建议放在“应用程序”，以便管理 Dock 入口和登录启动。 |
-| 当前版本 | 0.1.1，早期测试版本。 |
+| Hardware | The download supports Apple silicon Macs (M-series). No Intel build is provided. |
+| macOS | The minimum deployment target is macOS 14. Runtime testing has been performed on the developer's macOS 27 system; earlier versions have not yet been validated. |
+| Location | Install in Applications for the Dock entry and login startup registration. |
+| Version | 0.1.1, an early preview release. |
+| App language | The current app interface and bundled app name are in Chinese. Documentation is in English. |
 
-## 下载与安装
+## Download and Install
 
-1. 打开[版本下载页](https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/tag/v0.1.1)。
-2. 下载 `ClipboardWorkbench-0.1.1-macOS-arm64.zip`，解压。
-3. 将“剪切板工作台.app”移到“应用程序”，再从那里打开。
-4. 复制一段文字或一张图片，按 `Option + 空格` 检查快速小窗中的记录。
+1. Open the [download page](https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/tag/v0.1.1).
+2. Download and unzip `ClipboardWorkbench-0.1.1-macOS-arm64.zip`.
+3. Move the included `.app` to Applications and open it from there.
+4. Copy some text or an image, then press `Option + Space` to check the quick panel.
 
-请选择上述应用 ZIP，不要选择 GitHub 自动生成的 `Source code` 下载项。后者只包含本公开仓库的文档，不是应用安装包，也不包含应用源码。
+Choose the application ZIP above, not GitHub's automatically generated `Source code` downloads. Those archives contain this public repository's documentation, not an app installer or the application source code.
 
-发布页另提供 `.zip.sha256` 校验文件，可用于检查下载包是否一致。文件校验不等于安全审计。
+A `.zip.sha256` file is also provided to check download integrity. A matching checksum is not a security audit.
 
-## 首次打开的系统提示
+## First-Launch Prompts
 
-当前下载包使用本机临时签名，尚未使用 Developer ID 签名或完成 Apple 公证，因此首次打开可能被 macOS 拦截。这是当前分发方式的限制，不应通过关闭系统整体安全检查来处理。
+The current download uses ad hoc signing rather than a Developer ID signature and has not completed Apple notarization. macOS may therefore block the first launch. This distribution limitation should not be handled by disabling system-wide security checks.
 
-请确认下载来自本项目发布页，并参阅 [Apple 关于未知开发者应用的说明](https://support.apple.com/guide/mac-help/mh40616/mac)，自行决定是否允许打开。若系统提示应用已损坏或包含恶意软件，请停止打开，反馈提示原文，不要绕过警告。
+Confirm that the download came from this project's release page, then consult [Apple's guidance on apps from unidentified developers](https://support.apple.com/guide/mac-help/mh40616/mac) before deciding whether to allow it. If macOS reports that the app is damaged or contains malware, stop and report the exact warning instead of bypassing it.
 
-当前包未启用 App Sandbox。历史文件没有独立加密，复制敏感内容前请暂停记录；详细权限与数据处理说明见[隐私说明](PRIVACY.md)。
+The current package does not enable App Sandbox. History is not independently encrypted. Pause recording before copying sensitive content, and read the [privacy notice](PRIVACY.md) for details.
 
-## 后台运行与登录启动
+## Background Operation and Login Startup
 
-关闭主窗口或快速小窗不会退出应用，后台仍会记录剪切板。要停止记录，可在设置中暂停；要完全停止运行，请从应用菜单退出。
+Closing either window does not quit the app; clipboard recording continues in the background. Pause recording in Settings to stop capturing new entries, or quit through the application menu to stop the app completely.
 
-安装到“应用程序”后，应用会尝试注册登录启动。可在系统设置的“通用 > 登录项”中检查、允许或禁用。开发目录中的版本会跳过注册；实际重新登录后的自动启动行为尚未完成验证。
+When installed in Applications, the app attempts to register for login startup. Check, allow, or disable it in System Settings under General > Login Items. Development-directory builds skip registration. Startup after an actual logout and login has not yet been validated.
 
-## 常见问题
+## Troubleshooting
 
-### 快捷键没有打开小窗
+### The Shortcut Does Not Open the Panel
 
-检查 `Option + 空格` 是否被系统输入法或其他应用占用。也可通过应用菜单的“剪切板 > 打开/关闭快速小窗”打开。
+Check whether an input method, macOS shortcut, or another app is using `Option + Space`. You can also use the quick-panel command in the app's clipboard menu.
 
-### 多选后只粘贴了一项
+### Only One Selected Item Is Pasted
 
-应用向系统剪切板提供多个项目，但接收应用不一定支持全部类型或一次粘贴多个项目。可先完成多选，再从选中的项目拖到 Finder 或支持多项接收的应用。
+Clipboard Workbench places multiple items on the system clipboard, but the receiving app may not support every type or multiple-item paste. Select your items first, then drag from a selected item to Finder or another app that accepts multiple items.
 
-### 文件记录无法打开或拖出
+### A File Entry Cannot Be Used
 
-文件历史只保存原文件位置，不保存文件备份。检查原文件是否被移动、删除，或是否失去访问权限。请勿把剪切板历史作为重要资料的唯一备份。
+File entries store original locations, not backups. Check whether the original file was moved, deleted, or is no longer accessible. Do not treat clipboard history as the only backup of important material.
 
-### 隔空投送没有发现设备
+### AirDrop Cannot Find a Device
 
-隔空投送使用 macOS 原生分享服务；设备发现、无线连接和接收权限由系统管理。检查接收设备的隔空投送设置，并先用 Finder 测试系统隔空投送是否正常。
+AirDrop uses the native macOS sharing service. Device discovery, wireless connectivity, and receiving permissions are managed by the system. Check the receiving device's AirDrop settings and test AirDrop from Finder first.
 
-## 验证范围与反馈
+## Validation and Feedback
 
-当前版本已通过本机自动测试、优化构建、下载包完整性和启动检查。较早 macOS、跨设备隔空投送、实际登录启动及不同应用的批量接收行为仍需要更多设备验证，不代表所有环境已经通过测试。
+The current version passed local automated tests, an optimized build, package-integrity checks, and launch checks. Earlier macOS versions, cross-device AirDrop, actual login startup, and batch-receiving behavior in other apps still require broader testing.
 
-遇到问题请在 [Issues](https://github.com/B0yangWong/ClipboardWorkbench-Releases/issues) 提供系统版本、芯片型号、应用版本、复现步骤和提示原文。请先遮盖截图中的私人内容；安全问题按[安全反馈说明](SECURITY.md)私下联系。
+Report problems through [Issues](https://github.com/B0yangWong/ClipboardWorkbench-Releases/issues) with your macOS version, chip, app version, reproduction steps, and exact error message. Redact private content in screenshots. Report security concerns privately as described in [Security Reports](SECURITY.md).

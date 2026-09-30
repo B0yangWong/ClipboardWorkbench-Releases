@@ -1,7 +1,9 @@
-# 使用范围
+# Usage Terms
 
-剪切板工作台目前作为免费测试应用提供，可下载安装到自己的 Mac 上使用。它不是 MIT 开源项目，公开下载不代表应用源码已经公开，也不授予源码使用、修改、重新分发或转售的许可。若需要这些用途，请先联系 `by661414@gmail.com`。
+Clipboard Workbench is currently provided as a free preview application. You may download, install, and use it on your own Mac.
 
-测试版没有稳定性或数据恢复保证。请不要把剪切板历史当作重要文件的唯一备份。原始文件仍由用户自行管理。
+The application is not an MIT-licensed open-source project. Public downloads do not make the application source code public or grant permission to use the source code, modify the application, redistribute it, or resell it. Contact `by661414@gmail.com` before pursuing those uses.
 
-macOS、Apple、GitHub 等名称属于各自权利人；本项目不代表 Apple 或 GitHub 官方产品。
+The preview carries no guarantee of stability or data recovery. Do not treat clipboard history as the only backup of important files. You remain responsible for managing your original files.
+
+macOS, Apple, GitHub, and other product names belong to their respective rights holders. This project is not an official Apple or GitHub product.

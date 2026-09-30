@@ -1,13 +1,23 @@
-# 安全问题反馈
+# Security Reports
 
-目前只维护最新的 0.1.1 测试版。旧版 0.1.0 没有本次敏感标记过滤和文件权限保护，不推荐用于保存敏感内容。
+## Supported Version
 
-请将安全问题私下发给 `by661414@gmail.com`，不要在公开 Issues 中发布密码、密钥、个人历史、私人路径或可直接利用的细节。可提供应用版本、macOS 版本、不含私人数据的复现步骤和错误提示。
+Only the latest 0.1.1 preview release is currently maintained. Version 0.1.0 does not include the current sensitive-marker filtering and file-permission protections and is not recommended for sensitive content.
 
-应用源码没有公开。公开仓库只包含文档和应用下载资产，不接受通过提交源码来报告问题。
+## Report Privately
 
-已加入敏感标记过滤、暂停与清空操作、本地文件权限限制、图片路径检查，以及批量导出避免同名覆盖的保护。相关测试通过不代表不存在漏洞，也不等于独立安全审计。
+Send security concerns to `by661414@gmail.com`. Do not post passwords, keys, personal history, private paths, or actionable exploit details in public Issues.
 
-应用没有独立历史加密，没有启用 App Sandbox；当前发布包没有 Developer ID 签名和 Apple 公证。不要关闭 Gatekeeper 或系统整体安全保护。正式分发仍需补齐签名、公证和更广泛的设备验证。
+Useful details include the app version, macOS version, reproduction steps without private data, and the exact error message.
 
-不能保证固定响应时间；修复后会在公开发布说明中记录。
+Application source code remains private. This public repository hosts documentation and release assets; you do not need to submit source code to report a problem.
+
+## Protections and Limitations
+
+The app includes sensitive-marker filtering, recording-pause and history-clear controls, local file-permission restrictions, image-path validation, and protection against same-name overwrites during batch export. Passing the associated tests does not prove the absence of vulnerabilities or constitute an independent security audit.
+
+History is not independently encrypted. The app does not enable App Sandbox, and the current download has no Developer ID signature or Apple notarization. Do not disable Gatekeeper or system-wide security protections. See the [installation guide](INSTALL.md) and [privacy notice](PRIVACY.md).
+
+## Response
+
+A fixed response time cannot be guaranteed. Fixes will be documented in public release notes when available.

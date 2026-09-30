@@ -1,86 +1,86 @@
-<h1 align="center">剪切板工作台</h1>
+<h1 align="center">Clipboard Workbench</h1>
 
-<p align="center"><strong>为 macOS 打造的文字、图片与文件剪切板管理工具。</strong></p>
+<p align="center"><strong>A native macOS clipboard manager for text, images, and files.</strong></p>
 
-<p align="center">找回刚刚复制的内容，整理截图，把多个项目一次拖到需要的地方。</p>
+<p align="center">Recover recent copies, organize screenshots, and drag multiple items into your workflow.</p>
 
 <p align="center">
-  <a href="https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/download/v0.1.1/ClipboardWorkbench-0.1.1-macOS-arm64.zip">下载 macOS 应用</a> ·
-  <a href="INSTALL.md">安装说明</a> ·
-  <a href="https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/tag/v0.1.1">版本记录</a> ·
-  <a href="https://github.com/B0yangWong/ClipboardWorkbench-Releases/issues">问题反馈</a>
+  <a href="https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/download/v0.1.1/ClipboardWorkbench-0.1.1-macOS-arm64.zip">Download for macOS</a> |
+  <a href="INSTALL.md">Installation</a> |
+  <a href="https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/tag/v0.1.1">Release Notes</a> |
+  <a href="https://github.com/B0yangWong/ClipboardWorkbench-Releases/issues">Report an Issue</a>
 </p>
 
 ---
 
-剪切板不必只保留最后一次复制。剪切板工作台在后台记录最近的文字、图片和文件，让你随时找回、预览和再次使用。按下 `Option + 空格` 即可打开快速小窗；需要搜索或批量整理时，再进入完整工作台。
+Your clipboard does not have to stop at the last thing you copied. Clipboard Workbench keeps recent text, images, and file references close at hand so you can find, preview, and reuse them. Press `Option + Space` for quick access, or open the full workspace to search and organize multiple items.
 
-应用使用 Swift、SwiftUI 和 AppKit 构建，无需安装 Xcode，也无需注册应用账户。当前提供 Apple 芯片 Mac 的下载包。
+Built with Swift, SwiftUI, and AppKit. No Xcode installation or app account required. The current download is for Apple silicon Macs.
 
-## 核心功能
+## Features
 
-| 功能 | 使用方式 |
+| Feature | What you can do |
 | --- | --- |
-| 最近 50 条历史 | 自动记录文字、图片和文件，重启应用后恢复；连续重复内容不会反复加入。 |
-| 快速小窗 | 随时唤醒，滚动查看最近 30 条内容，支持列表、网格、多选和拖拽。 |
-| 完整工作台 | 按类型筛选、搜索文字，在列表与网格间切换，并在右侧查看完整文本或大图。 |
-| 批量处理 | 使用 Command 单击或鼠标框选，批量复制、拖拽和删除；框选靠近上下边缘时自动滚动。 |
-| 原生隔空投送 | 将选中的图片和文件交给 macOS 分享服务，发送到附近设备。 |
-| 本地保存 | 历史保存在自己的 Mac 上；设置中可暂停记录或清空历史。 |
+| 50-item history | Keep recent text, images, and file references across app restarts. Consecutive duplicates are skipped. |
+| Quick panel | Browse the latest 30 entries in a compact window with scrolling, list and grid layouts, multi-selection, and drag-and-drop. |
+| Full workspace | Filter by type, search text content, switch layouts, and inspect full text or a large image preview. |
+| Batch workflows | Select with Command-click or a selection rectangle, then copy, drag, or delete multiple items. Selection scrolls near the top and bottom edges. |
+| Native AirDrop | Send selected images and files through the macOS sharing service. |
+| Local history | Store history on your Mac, with controls to pause recording and clear saved entries. |
 
-## 快速开始
+## Quick Start
 
-1. [下载安装包](https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/download/v0.1.1/ClipboardWorkbench-0.1.1-macOS-arm64.zip)，解压后将“剪切板工作台.app”移到“应用程序”。
-2. 打开应用，像平时一样复制文字、截图或 Finder 中的文件。
-3. 按 `Option + 空格` 打开小窗，双击一条记录，将它重新复制到系统剪切板，再到目标应用粘贴。
-4. 点击 Dock 图标打开完整工作台，搜索、预览或选择多个项目进行处理。
+1. [Download the app](https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/download/v0.1.1/ClipboardWorkbench-0.1.1-macOS-arm64.zip), unzip it, and move the included app to Applications.
+2. Open the app and copy text, an image, or files from Finder as usual.
+3. Press `Option + Space`. Double-click an entry to copy it back to the system clipboard, then paste it into your destination app.
+4. Click the Dock icon to open the full workspace for search, previews, and batch actions.
 
-首次打开可能出现 macOS 开发者验证提示，请先阅读[安装与兼容性说明](INSTALL.md)。不要关闭系统整体安全检查。
+macOS may show a developer-verification prompt on first launch. Read the [installation and compatibility guide](INSTALL.md) before proceeding; do not disable system-wide security checks. The app interface is currently in Chinese; this repository's documentation is in English.
 
-## 两种窗口，同一份历史
+## Two Windows, One History
 
-### 随手取用
+### Quick Access
 
-快速小窗适合在工作中临时找回上一段文字、前几张截图或刚复制的文件。按快捷键打开，取用后按 `Esc` 关闭，不必一直占据桌面。
+Use the compact panel to recover a previous snippet, a recent screenshot, or files you just copied without leaving a full workspace on screen. Open it with the shortcut and dismiss it with `Esc`.
 
-### 集中整理
+### A Workspace for Organizing
 
-完整工作台提供更大的浏览区域和右侧预览。将截图集中挑选出来，查看复制过的长文本，或把多个文件一起拖到 Finder 和其他支持接收的应用。
+The main window gives you more room to browse and a dedicated preview on the right. Review long text, pick a group of screenshots, or drag selected files to Finder and other apps that support receiving them.
 
-两个窗口都不会强制置顶。列表适合阅读摘要，网格适合浏览图片。
+Neither window is forced to stay above other apps. Use the list for readable summaries or the grid for visual browsing.
 
-## 常用操作
+## Everyday Controls
 
-| 操作 | 快捷键或鼠标方式 |
+| Action | Shortcut or interaction |
 | --- | --- |
-| 打开或关闭快速小窗 | `Option + 空格` |
-| 打开完整工作台 | 点击 Dock 图标，或在应用内按 `Command + Shift + M` |
-| 再次复制一条记录 | 双击记录，或选中后点击复制按钮 |
-| 添加或取消单项选择 | `Command + 单击` |
-| 框选多个项目 | 从内容之间的空白处拖动，靠近顶部或底部继续选择屏幕外的项目 |
-| 拖出多个项目 | 先完成多选，再从选中的项目开始拖动 |
-| 全选或取消全选 | 点击全选按钮；主窗口也支持 `Command + A` |
-| 关闭快速小窗 | `Esc` |
+| Toggle the quick panel | `Option + Space` |
+| Open the full workspace | Click the Dock icon, or press `Command + Shift + M` while the app is active |
+| Copy an entry again | Double-click it, or select it and use the copy button |
+| Add or remove an item from the selection | `Command-click` |
+| Select a range of items | Drag from empty space between items; move near the top or bottom edge to keep selecting beyond the viewport |
+| Drag multiple items | Finish selecting first, then drag from a selected item |
+| Select all or deselect all | Use the selection button; the main window also supports `Command + A` |
+| Dismiss the quick panel | `Esc` |
 
-批量粘贴能否一次接收多个项目，取决于目标应用。文件记录保存原文件位置，不备份文件本身；原文件移动或删除后，该记录可能无法继续使用。
+Batch paste support depends on the receiving app. File entries reference their original locations, not backup copies. Moving or deleting an original file can make its history entry unusable.
 
-## 隐私与控制
+## Privacy and Control
 
-应用自身不自动上传剪切板历史，不包含广告、统计分析或自动更新服务。分享只在你主动操作时，将所选内容交给接收应用或系统服务。
+The app does not automatically upload clipboard history and has no ads, analytics, or automatic update service. Sharing happens only when you explicitly hand selected content to another app or a system service.
 
-你可以在设置中暂停记录，或清空历史与拖拽临时副本。暂停状态会在重启后保留。
+Pause recording in Settings, or clear history and temporary drag copies. Your pause setting is remembered across restarts.
 
-历史没有独立加密，敏感内容过滤也不能识别所有密码。复制密码、验证码或其他保密内容前，请先暂停记录。完整的数据保存、删除和权限说明见[隐私说明](PRIVACY.md)。
+History is not independently encrypted, and sensitive-content filtering cannot identify every password. Pause recording before copying passwords, verification codes, or confidential material. See the [privacy notice](PRIVACY.md) for storage, permissions, and deletion details.
 
-## 文档与反馈
+## Documentation and Feedback
 
-- [安装与兼容性](INSTALL.md)：系统要求、首次打开、登录启动和常见问题。
-- [版本记录](https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases)：下载包与版本说明。
-- [使用范围](USAGE.md)：免费个人使用及授权边界。
-- [隐私说明](PRIVACY.md)：记录哪些内容、保存在哪里、如何删除。
-- [问题与功能建议](https://github.com/B0yangWong/ClipboardWorkbench-Releases/issues)：请提供系统版本、应用版本和复现步骤。
-- [安全反馈](SECURITY.md)：安全问题请私下联系 `by661414@gmail.com`。
+- [Installation and Compatibility](INSTALL.md): requirements, first launch, login startup, and troubleshooting.
+- [Releases](https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases): downloads and version notes.
+- [Usage Terms](USAGE.md): free personal use and permission boundaries.
+- [Privacy](PRIVACY.md): what is recorded, where it is stored, and how to remove it.
+- [Issues and Feature Requests](https://github.com/B0yangWong/ClipboardWorkbench-Releases/issues): include your macOS version, app version, and reproduction steps.
+- [Security Reports](SECURITY.md): contact `by661414@gmail.com` privately.
 
-请勿在公开反馈中上传密码、完整剪切板历史、私人文件路径或包含这些内容的截图。
+Do not post passwords, complete clipboard histories, private file paths, or screenshots containing them in public reports.
 
-本仓库用于应用下载、文档和反馈，应用源码保持私有。应用可免费下载安装到自己的 Mac 上使用；其他用途请参阅[使用范围](USAGE.md)。
+This repository hosts downloads, documentation, and feedback. Application source code remains private. The app is free to download and use on your own Mac; see the [usage terms](USAGE.md) for other uses.
