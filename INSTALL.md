@@ -1,6 +1,6 @@
 # Installation and Compatibility
 
-This guide applies to Clipboard Workbench 0.1.1. Xcode and other developer tools are not required.
+This guide applies to Clipboard Workbench 0.1.2. Xcode and other developer tools are not required.
 
 ## Requirements
 
@@ -9,19 +9,21 @@ This guide applies to Clipboard Workbench 0.1.1. Xcode and other developer tools
 | Hardware | The download supports Apple silicon Macs (M-series). No Intel build is provided. |
 | macOS | The minimum deployment target is macOS 14. Runtime testing has been performed on the developer's macOS 27 system; earlier versions have not yet been validated. |
 | Location | Install in Applications for the Dock entry and login startup registration. |
-| Version | 0.1.1, an early preview release. |
-| App language | The current app interface and bundled app name are in Chinese. Documentation is in English. |
+| Version | 0.1.2, a preview release. |
+| App language | English by default, with Simplified Chinese available in Settings. The physical bundle filename remains Chinese for compatibility with earlier installations. |
 
 ## Download and Install
 
-1. Open the [download page](https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/tag/v0.1.1).
-2. Download and unzip `ClipboardWorkbench-0.1.1-macOS-arm64.zip`.
+1. Open the [download page](https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/tag/v0.1.2).
+2. Download and unzip `ClipboardWorkbench-0.1.2-macOS-arm64.zip`.
 3. Move the included `.app` to Applications and open it from there.
 4. Copy some text or an image, then press `Option + Space` to check the quick panel.
 
 Choose the application ZIP above, not GitHub's automatically generated `Source code` downloads. Those archives contain this public repository's documentation, not an app installer or the application source code.
 
 A `.zip.sha256` file is also provided to check download integrity. A matching checksum is not a security audit.
+
+To upgrade, quit the old app, replace its application bundle in Applications, and reopen it. History and preferences stay in their existing local locations. Do not run two copies at once. A new installation defaults to English; an existing language choice is preserved.
 
 ## First-Launch Prompts
 
@@ -51,12 +53,20 @@ Clipboard Workbench places multiple items on the system clipboard, but the recei
 
 File entries store original locations, not backups. Check whether the original file was moved, deleted, or is no longer accessible. Do not treat clipboard history as the only backup of important material.
 
+### A File Does Not Have a Quick Look Preview
+
+Preview support depends on the file type and the macOS Quick Look providers available on your Mac. Select a file and press Space, or use Show in Finder to open it with a suitable app. Multiple selected files can be browsed with the preview window's arrows.
+
+### An Excluded Application Is Still Recorded
+
+Exclusions use the foreground application at capture time. macOS does not expose the clipboard owner; an app copying in the background, or changing the clipboard during a very rapid app switch, cannot always be identified. Pause recording before copying sensitive information.
+
 ### AirDrop Cannot Find a Device
 
 AirDrop uses the native macOS sharing service. Device discovery, wireless connectivity, and receiving permissions are managed by the system. Check the receiving device's AirDrop settings and test AirDrop from Finder first.
 
 ## Validation and Feedback
 
-The current version passed local automated tests, an optimized build, package-integrity checks, and launch checks. Earlier macOS versions, cross-device AirDrop, actual login startup, and batch-receiving behavior in other apps still require broader testing.
+Version 0.1.2 passed 40 automated tests, an optimized build, package-integrity checks, and local launch and UI checks for copying, Quick Look, Finder reveal, and Settings. Earlier macOS versions, cross-device AirDrop, actual login startup, and batch-receiving behavior in other apps still require broader testing.
 
 Report problems through [Issues](https://github.com/B0yangWong/ClipboardWorkbench-Releases/issues) with your macOS version, chip, app version, reproduction steps, and exact error message. Redact private content in screenshots. Report security concerns privately as described in [Security Reports](SECURITY.md).

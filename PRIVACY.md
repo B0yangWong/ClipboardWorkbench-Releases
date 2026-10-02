@@ -1,6 +1,6 @@
 # Privacy Notice
 
-Applies to version 0.1.1. Last updated: September 30, 2026.
+Applies to version 0.1.2. Last updated: October 1, 2026.
 
 ## What Is Recorded
 
@@ -10,7 +10,9 @@ Images are saved locally as PNG files with thumbnails. File entries store paths,
 
 ## Storage and Access
 
-History is stored in `~/Library/Application Support/ClipboardWorkbench/`, including `history.json`, `Images`, and `Thumbnails`. Text and image copies generated for dragging are stored in `~/Library/Caches/ClipboardWorkbench/DragExports/`.
+History is stored in `~/Library/Application Support/ClipboardWorkbench/`, including `history.json`, its recovery mirror `history.backup.json`, `Images`, and `Thumbnails`. Unreadable history files are preserved as `history-corrupt-*.json` before replacement. Deletions are also applied to the recovery mirror. Text and image copies generated for dragging or batch-image copying are stored in `~/Library/Caches/ClipboardWorkbench/DragExports/`.
+
+Language, recording pause, and the bundle identifiers and names of excluded applications are stored in local application preferences. The app observes foreground-application changes to apply exclusions; it does not store a separate application-usage history. Copying an existing workbench entry uses an app-owned clipboard marker and does not create a duplicate history record.
 
 The app's private directories restrict reading, writing, and traversal to the current user. History and newly generated files restrict reading and writing to the current user. These permissions are not independent encryption and do not prevent access by other programs under the same account, administrators, backup software, or someone who gains access to that account.
 
@@ -31,13 +33,13 @@ The app skips clipboard content carrying the following markers:
 
 These markers are supplied by the app that copied the content. They are not reliable password detection: passwords without these markers may still be recorded.
 
-The recording-pause setting is remembered across app restarts. Pausing does not delete existing history. Pause before copying sensitive content.
+The recording-pause setting and excluded-application list are remembered across app restarts. Pausing or adding an exclusion does not delete existing history. Exclusions use the foreground application because macOS does not expose the clipboard owner; background copying and rapid application switches cannot always be attributed. This is not a guarantee that sensitive content will never be recorded. Pause before copying sensitive content.
 
 ## Retention and Deletion
 
-When history exceeds 50 entries, the oldest entries and their saved image assets are removed. You can delete individual or selected entries, or confirm a full history and temporary-drag-copy cleanup in Settings. Clearing history does not delete original files or clear the system clipboard.
+When history exceeds 50 entries, the oldest entries and their saved image assets are removed after the new history is successfully saved. You can delete individual or selected entries, or confirm a full history and unused-temporary-copy cleanup in Settings. Full clearing also removes preserved damaged-history archives. If saving fails, entries and image assets are retained and a message is shown. Clearing history does not delete original files or clear the system clipboard.
 
-Temporary drag-copy directories older than 24 hours are cleaned up at the next app launch, not by a continuously running timer. Use the clearing action if you need immediate removal. Deletion does not guarantee secure erasure on an SSD and does not remove system backups, copies already received by other apps, or files you exported yourself.
+Temporary-copy directories older than 24 hours are cleaned up at the next app launch, not by a continuously running timer. Copies still referenced by the current clipboard are protected from both automatic and manual cleanup, so a batch image copy remains usable after its history entries are deleted. After the clipboard changes, those copies become eligible for the next cleanup. Use the clearing action to remove unused copies immediately. Deletion does not guarantee secure erasure on an SSD and does not remove system backups, copies already received by other apps, or files you exported yourself.
 
 Uninstalling the app does not automatically remove its data directories. Before uninstalling, you can clear history, quit the app, and remove the remaining directories and login item.
 

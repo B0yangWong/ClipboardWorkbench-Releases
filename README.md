@@ -5,9 +5,9 @@
 <p align="center">Recover recent copies, organize screenshots, and drag multiple items into your workflow.</p>
 
 <p align="center">
-  <a href="https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/download/v0.1.1/ClipboardWorkbench-0.1.1-macOS-arm64.zip">Download for macOS</a> |
+  <a href="https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/download/v0.1.2/ClipboardWorkbench-0.1.2-macOS-arm64.zip">Download for macOS</a> |
   <a href="INSTALL.md">Installation</a> |
-  <a href="https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/tag/v0.1.1">Release Notes</a> |
+  <a href="https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/tag/v0.1.2">Release Notes</a> |
   <a href="https://github.com/B0yangWong/ClipboardWorkbench-Releases/issues">Report an Issue</a>
 </p>
 
@@ -26,16 +26,19 @@ Built with Swift, SwiftUI, and AppKit. No Xcode installation or app account requ
 | Full workspace | Filter by type, search text content, switch layouts, and inspect full text or a large image preview. |
 | Batch workflows | Select with Command-click or a selection rectangle, then copy, drag, or delete multiple items. Selection scrolls near the top and bottom edges. |
 | Native AirDrop | Send selected images and files through the macOS sharing service. |
+| Quick Look and Finder | Preview selected files with Space or the eye button, browse multiple previews, and reveal originals in Finder. |
+| Recording exclusions | Choose applications to skip in Settings, in addition to pausing all recording. |
+| English and Chinese | Start in English; switch to Simplified Chinese in Settings without restarting. |
 | Local history | Store history on your Mac, with controls to pause recording and clear saved entries. |
 
 ## Quick Start
 
-1. [Download the app](https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/download/v0.1.1/ClipboardWorkbench-0.1.1-macOS-arm64.zip), unzip it, and move the included app to Applications.
+1. [Download the app](https://github.com/B0yangWong/ClipboardWorkbench-Releases/releases/download/v0.1.2/ClipboardWorkbench-0.1.2-macOS-arm64.zip), unzip it, and move the included app to Applications.
 2. Open the app and copy text, an image, or files from Finder as usual.
-3. Press `Option + Space`. Double-click an entry to copy it back to the system clipboard, then paste it into your destination app.
+3. Press `Option + Space`. Select an entry and press `Command + C`, or double-click it, then paste it into your destination app. Copying from the workbench does not add another history entry.
 4. Click the Dock icon to open the full workspace for search, previews, and batch actions.
 
-macOS may show a developer-verification prompt on first launch. Read the [installation and compatibility guide](INSTALL.md) before proceeding; do not disable system-wide security checks. The app interface is currently in Chinese; this repository's documentation is in English.
+macOS may show a developer-verification prompt on first launch. Read the [installation and compatibility guide](INSTALL.md) before proceeding; do not disable system-wide security checks. Open Settings with `Command + ,` to choose English or Chinese and manage recording exclusions.
 
 ## Two Windows, One History
 
@@ -55,7 +58,10 @@ Neither window is forced to stay above other apps. Use the list for readable sum
 | --- | --- |
 | Toggle the quick panel | `Option + Space` |
 | Open the full workspace | Click the Dock icon, or press `Command + Shift + M` while the app is active |
-| Copy an entry again | Double-click it, or select it and use the copy button |
+| Copy selected entries | `Command + C` in either window, or use the copy button; double-click copies one entry |
+| Preview selected images or files | `Space` or the eye button; use the arrows in the preview window to browse multiple files |
+| Reveal selected files | Use the folder button or the context menu's Show in Finder action |
+| Open Settings | `Command + ,` or the gear button |
 | Add or remove an item from the selection | `Command-click` |
 | Select a range of items | Drag from empty space between items; move near the top or bottom edge to keep selecting beyond the viewport |
 | Drag multiple items | Finish selecting first, then drag from a selected item |
@@ -68,7 +74,7 @@ Batch paste support depends on the receiving app. File entries reference their o
 
 The app does not automatically upload clipboard history and has no ads, analytics, or automatic update service. Sharing happens only when you explicitly hand selected content to another app or a system service.
 
-Pause recording in Settings, or clear history and temporary drag copies. Your pause setting is remembered across restarts.
+Pause recording in Settings, exclude chosen applications, or clear history and unused temporary copies. Recording preferences are remembered across restarts. Exclusions apply while a chosen app is in front: macOS does not expose the clipboard owner, so background copies cannot always be attributed. Exclusions are not password detection.
 
 History is not independently encrypted, and sensitive-content filtering cannot identify every password. Pause recording before copying passwords, verification codes, or confidential material. See the [privacy notice](PRIVACY.md) for storage, permissions, and deletion details.
 
